@@ -1,105 +1,126 @@
-body {
-  background-color: antiquewhite;
-  color: yellow;
+:root{
+  --main-color: rgb(255, 255, 255);
+  --bg-color: rgb(0, 0, 0);
 }
 
-div {
-  margin-bottom: 20px;
-  margin-left: 20%;
-  margin-right: 20%;
-  padding: 20px;
-  background-color: black;
-  border-radius: 20px;
-  font-family: 'Courier New', Courier, monospace;
+html body {
+  background-color: rgb(0, 0, 0);
 }
 
-.name {
-  font-size: 4em;
+.navbar-lewagon {
+  justify-content: space-between;
+  background: rgb(0, 0, 0);
 }
 
-h1 {
-  text-align: center;
-  font-size: 3em;
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
 }
 
-.profession {
-  font-size: 2.5em;
+.navbar-lewagon .navbar-brand img {
+  width: 60px;
 }
 
 img {
-  display: block;
-  border: 3px solid white;
-  height: 20em;
-  width: 18em;
-  margin-left: auto;
-  margin-right: auto;
+  width: 40px;
+  height: auto;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255) !important;
+  margin-right: 10px;
+}
+
+.photo-creator {
+  margin-top: 10px;
+  width: 20rem;
+  height: auto;
   border-radius: 50%;
 }
 
-h2 {
-  text-align: center;
+.home-description {
+  color: white;
+  margin: 15rem;
 }
 
-p {
-  text-align: center;
+.text-animation {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
 }
 
-.intro {
-  font-size: 1.8em;
-}
-
-.description {
-  font-size: 1.2em;
-  text-align: justify;
-  line-height: 180%;
-}
-
-ul {
-  display: table;
-  margin: 0 auto;
-  list-style: none;
-  padding: 0;
+.text-animation span {
   position: relative;
 }
 
-li {
-  margin-bottom: 20%;
+.text-animation span::before {
+  content: "Web Developer";
+  color: var(--main-color);
+  animation: words 20s infinite;
 }
 
-a.button {
-  border: 1px solid white;
-  border-radius: 10px;
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 10px;
-  transition: background-color 0.5s ease;
+.text-animation span::after {
+  content: "";
+  background-color: var(--bg-color);
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 120%;
+  border-left: 3px solid var(--bg-color);
+  right: -8px;
+  animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
 }
 
-#facebook {
-  background-color: blue;
-  color: white;
+@keyframes cursor {
+  to {
+    border-left: 2px solid var(--main-color);
+  }
 }
 
-#facebook:hover {
-  background-color: white;
-  color: black;
+@keyframes words {
+  0%,
+  20% {
+    content: "Front-end Developer";
+  }
+  21%,
+  40% {
+    content: "Back-end Developer";
+  }
+  41%,
+  60% {
+    content: "Full-stack Developer";
+  }
+  61%,
+  80% {
+    content: "UX - UI Developer";
+  }
+  81%,
+  100% {
+    content: "Freelancer Developer";
+  }
 }
 
-#twitter {
-  background-color: green;
-}
-
-#twitter:hover {
-  background-color: white;
-  color: red;
-}
-
-#linkedin {
-  background-color: aquamarine;
-}
-
-#linkedin:hover {
-  background-color: blueviolet;
-  color: darksalmon;
+@keyframes typing {
+  0%,
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 8px);
+  }
 }
