@@ -30,25 +30,31 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 });
 
 let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header navv a');
+let navLinks = document.querySelectorAll('header nav a');
 
-window.onscroll = () => {
-  sections.forEach(sec => {
-    let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
-    let height = sec.offsetHeight;
-    let id = sec.getAttribute('id');
+window.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section'); // Assuming sections have a specific class or tag
+  const navLinks = document.querySelectorAll('header nav a');
 
-    if (top >= offset && top < offset + height) {
-      navLinks.forEach(links => {
-        links.classList.remove('active');
-        document.querySelector('header nav a [href*=' + id + ']').classList.add('active');
-      });
-    }
+  window.onscroll = () => {
+    sections.forEach(sec => {
+      const top = window.scrollY;
+      const offset = sec.offsetTop - 150;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute('id');
 
-  }
-  )
-}
+      if (top >= offset && top < offset + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const activeLink = document.querySelector(`header nav a[href*=${id}]`);
+          if (activeLink) { // Check if activeLink is not null
+            activeLink.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   let menuIcon = document.querySelector('#menuIcon');
@@ -56,7 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (menuIcon && navbar) {  // Ensure the elements exist before adding event handlers
     menuIcon.onclick = () => {
-      menuIcon.classList.toggle('bx-x');
+      menuIcon.classList.toggle('fa-solid');
+      menuIcon.classList.toggle('fa-x');
       navbar.classList.toggle('active');
     };
   } else {

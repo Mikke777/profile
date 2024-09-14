@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: auto;
   text-decoration: none;
   border: none;
   outline: none;
@@ -24,6 +25,7 @@ html {
 body {
   background: var(--bg-color);
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 header {
@@ -66,11 +68,11 @@ header {
   border-bottom: 3px solid var(--main-color);
 }
 
-#menu-icon {
+#menuIcon {
   font-size: 3.6rem;
-  color: var(--main-color);
   display: none;
 }
+
 
 section {
   min-height: 100vh;
@@ -222,23 +224,23 @@ span {
 @keyframes words {
   0%,
   20% {
-    content: "Frontend Developer";
+    content: "Frontend";
   }
   21%,
   40% {
-    content: "Backend Developer";
+    content: "Backend";
   }
   41%,
   60% {
-    content: "Fullstack Developer";
+    content: "Fullstack Dev";
   }
   61%,
   80% {
-    content: "UX-UI Designer";
+    content: "UX-UI";
   }
   81%,
   100% {
-    content: "Freelancer Developer";
+    content: "Freelancing";
   }
 }
 
@@ -266,6 +268,9 @@ span {
   80%,
   85% {
     width: calc(100% + 8px);
+  }
+  100% {
+    width: 100%;
   }
 }
 
@@ -402,7 +407,7 @@ span {
 
 .project-box {
   background-color: var(--main-color);
-  height: 300px;
+  height: 400px;
   border-radius: 3rem;
   border: 5px solid transparent;
   cursor: pointer;
@@ -432,7 +437,7 @@ span {
   line-height: 2;
 }
 
-.project-info p {
+.project-info ul {
   font-size: 1.6rem;
   font-weight: 600;
   max-height: 100px;
@@ -709,7 +714,7 @@ span {
   }
 }
 @media(max-width: 895px){
-  #menu-icon{
+  #menuIcon{
     display: block;
   }
 
@@ -750,5 +755,75 @@ span {
   .project-container{
     grid-template-columns: repeat(1, 1fr);
     margin: 0 5rem;
+  }
+}
+
+@media(max-width: 768px) {
+  /* Styles for devices with smaller screens */
+  .heading {
+    font-size: 5rem;
+  }
+
+  .navbar.active {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .navbar a {
+    font-size: 2em;
+    text-align: left; /* Center text within the link */
+    padding: 10px; /* Adjust padding to control spacing */
+    display: block; /* Make links block-level elements */
+  }
+
+  .education{
+    padding: 1.5rem;
+  }
+
+  .timeline-dot{
+    left: 0;
+
+  }
+
+  .timeline-items::before {
+    content: ""; /* This creates the pseudo-element */
+    position: absolute; /* This allows it to be positioned relative to .timeline-items */
+    width: 2px; /* Width of the line */
+    height: 100%; /* Height of the line */
+    left: 0%; /* Center the line horizontally */ /* Center the line exactly at the middle */
+    background-color: var(--main-color); /* Color of the line */
+  }
+
+  .projects {
+    margin: 0;
+    padding: 0;
+  }
+
+  .project-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .project-box {
+  width: 90vw;
+  height: 60vh;
+  }
+
+}
+
+@media(max-width: 820px) {
+  .navbar.active {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .navbar a {
+    font-size: 2em;
+    text-align: left; /* Center text within the link */
+    padding: 10px; /* Adjust padding to control spacing */
+    display: block; /* Make links block-level elements */
   }
 }
