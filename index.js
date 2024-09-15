@@ -23,6 +23,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     .then(function(response) {
       document.getElementById('statusMessage').textContent = 'Email Sent!';
       console.log('SUCCESS!', response.status, response.text);
+      document.getElementById('contactForm').reset();
     }, function(error) {
       document.getElementById('statusMessage').textContent = 'Failed to send email. Please try again later.';
       console.log('FAILED...', error);
